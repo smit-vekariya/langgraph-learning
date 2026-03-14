@@ -94,8 +94,6 @@ def human_approval(state: State):
         }
     )
 
-
-
 builder = StateGraph(State)
 builder.add_node("chatbot_node", chatbot)
 builder.add_node("tool_node", ToolNode(tools))
@@ -113,7 +111,6 @@ builder.add_conditional_edges(
     }
 )
 
-builder.add_edge("human_approval", "tool_node")
 builder.add_edge("tool_node", "chatbot_node")
 builder.add_edge("chatbot_node", END)
 
